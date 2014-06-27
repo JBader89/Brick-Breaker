@@ -19,7 +19,7 @@ package
 	import flash.display.Loader;
 	import flash.net.URLRequest;
 	import flash.geom.Matrix;
-	
+		
 	public class BrickBreaker extends Sprite
 	{
 		private var brickHolder:Sprite=new Sprite();
@@ -152,15 +152,15 @@ package
 			addChild(mySprite);
 		}
 		private function addMusic():void{
-			song.load(new URLRequest("Grease Monkey.mp3"));
+			song.load(new URLRequest("audio/Grease Monkey.mp3"));
 			//channel=song.play(0,1000);
-			mySound.load(new URLRequest("Pop2.mp3"));
-			mySound2.load(new URLRequest("Power-Up.mp3"));
-			mySound3.load(new URLRequest("miss.mp3"));
-			mySound4.load(new URLRequest("Applause.mp3"));
-			mySound5.load(new URLRequest("Sad Trombone Sound.mp3"));
-			mySound6.load(new URLRequest("Fireworks.mp3"));
-			mySound7.load(new URLRequest("Laser.mp3"));
+			mySound.load(new URLRequest("audio/Pop2.mp3"));
+			mySound2.load(new URLRequest("audio/Power-Up.mp3"));
+			mySound3.load(new URLRequest("audio/miss.mp3"));
+			mySound4.load(new URLRequest("audio/Applause.mp3"));
+			mySound5.load(new URLRequest("audio/Sad Trombone Sound.mp3"));
+			mySound6.load(new URLRequest("audio/Fireworks.mp3"));
+			mySound7.load(new URLRequest("audio/Laser.mp3"));
 		}
 		private function createBorder():void{
 			var border:Sprite=new Sprite();
@@ -343,22 +343,6 @@ package
 			ammoTxt.y=220;
 			underlineTextField(ammoTxt);
 			addChild(ammoTxt);
-			var title:TextField=new TextField;
-			title.text="Brick Breaker";
-			title.textColor=0x000000;
-			title.height=20;
-			title.width=200
-			title.x=535;
-			title.y=310; 
-			italicizeTextField(title);
-			var signature:TextField=new TextField;
-			signature.text="By Jeremy Bader"
-			signature.textColor=0x000000;
-			signature.height=20;
-			signature.width=200
-			signature.x=525;
-			signature.y=325; 
-			italicizeTextField(signature);
 			var myFormat:TextFormat=new TextFormat();
 			myFormat.size=12.5;
 			myFormat.align=TextFormatAlign.CENTER;
@@ -378,8 +362,6 @@ package
 			addChild(levelText);
 			addChild(livesText);
 			addChild(ammoText);
-			addChild(title);
-			addChild(signature);
 			updateScore()
 			updateLevel()
 			updateLives()
@@ -494,16 +476,16 @@ package
 			var playAgain:Sprite=new Sprite();
 			playAgain.graphics.lineStyle(1,0x000000);
 			playAgain.graphics.beginFill(0x008CFF);
-			playAgain.graphics.drawRect(-95,35,120,60);
+			playAgain.graphics.drawRect(475,275,120,60);
 			playAgain.buttonMode=true;
 			addChild(playAgain);
 			var replay:TextField=new TextField;
 			replay.text="Play Again";
-			replay.textColor=0xFF0000;
+			replay.textColor=0x000000;
 			replay.height=20;
 			replay.width=200;
-			replay.x=-65;
-			replay.y=55;
+			replay.x=507;
+			replay.y=295;
 			replay.selectable=false;
 			playAgain.addChild(replay);
 			var gameOverMessage:TextField=new TextField;
@@ -1131,13 +1113,13 @@ package
 						ball.x=Math.floor((2*paddle.x+paddle.width)/2);
 					}
 				};
-				if (yourEvent.keyCode==Keyboard.UP){
-					for (var i:int=0; i<brickHolder.numChildren; i++){
-						var brickToRemove:Sprite=brickHolder.getChildAt(i) as Sprite;
-						brickHolder.removeChild(brickToRemove);
-						i--;
-					}
-				}
+//				if (yourEvent.keyCode==Keyboard.UP){
+//					for (var i:int=0; i<brickHolder.numChildren; i++){
+//						var brickToRemove:Sprite=brickHolder.getChildAt(i) as Sprite;
+//						brickHolder.removeChild(brickToRemove);
+//						i--;
+//					}
+//				}
 				if (yourEvent.keyCode==Keyboard.DOWN){
 					paddle.width-=20;
 					paddle2.width-=20;
